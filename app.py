@@ -24,14 +24,6 @@ def ensure_playwright():
             [sys.executable, "-m", "playwright", "install-deps", "chromium"],
             capture_output=True, text=True, timeout=120
         )
-        subprocess.run(
-            ["apt-get", "install", "-y", "fonts-liberation", "fonts-noto-core"],
-            capture_output=True, text=True, timeout=60
-        )
-        subprocess.run(
-            ["fc-cache", "-f"],
-            capture_output=True, text=True, timeout=30
-        )
         return True, r.stdout
     except Exception as e:
         return False, str(e)
