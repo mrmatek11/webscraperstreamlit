@@ -452,12 +452,24 @@ if run_btn:
             st.session_state.result_zip = zips[-1]
 
         # collect screenshots from zip
+        # snap.py saves page screenshots as:
+        #   full mode:        <domain>/<page>/screenshot_full.png
+        #   screenshots mode: <domain>/<YYYY-MM-DD_domain_page>.png
+        # asset images live in: <domain>/<page>/assets/*.png -- skip those
         shots = []
         if st.session_state.result_zip:
             try:
                 with zipfile.ZipFile(st.session_state.result_zip) as zf:
                     for name in sorted(zf.namelist()):
-                        if name.lower().endswith(".png"):
+                        if not name.lower().endswith(".png"):
+                            continue
+                        parts = Path(name).parts
+                        if "assets" in [p.lower() for p in parts]:
+                            continue
+                        fname = Path(name).name.lower()
+                        if fname == "screenshot_full.png":
+                            shots.append((name, zf.read(name)))
+                        elif len(parts) == 2 and fname.endswith(".png"):
                             shots.append((name, zf.read(name)))
             except Exception:
                 pass
