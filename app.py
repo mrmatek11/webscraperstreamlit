@@ -25,12 +25,8 @@ def ensure_playwright():
             capture_output=True, text=True, timeout=120
         )
         subprocess.run(
-            ["apt-get", "install", "-y", "fonts-liberation", "fonts-noto-core", "locales"],
+            ["apt-get", "install", "-y", "fonts-liberation", "fonts-noto-core"],
             capture_output=True, text=True, timeout=60
-        )
-        subprocess.run(
-            ["locale-gen", "pl_PL.UTF-8"],
-            capture_output=True, text=True, timeout=30
         )
         subprocess.run(
             ["fc-cache", "-f"],
