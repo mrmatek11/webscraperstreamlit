@@ -825,16 +825,25 @@ def _navigate(page, url: str, retries: int = 2) -> Tuple[bool, str]:
 
 def _take_screenshot(page, output_path: Path):
     try:
-        page_height = page.evaluate("() => document.body.scrollHeight")
+        page_height = page.evaluate("""() => {
+            const h1 = document.body ? document.body.scrollHeight : 0;
+            const h2 = document.documentElement ? document.documentElement.scrollHeight : 0;
+            const h3 = Math.max(h1, h2);
+            const layout = document.documentElement.getBoundingClientRect();
+            return Math.max(h3, Math.ceil(layout.height));
+        }""")
     except Exception:
         page_height = 0
+
+    viewport = page.evaluate("() => ({ w: window.innerWidth, h: window.innerHeight })")
+    vp_w = viewport.get('w', 1440)
 
     if page_height > SCREENSHOT_MAX_HEIGHT:
         print(f"   [!] strona ma {page_height}px — przycinam do {SCREENSHOT_MAX_HEIGHT}px")
         try:
             page.screenshot(
                 path=str(output_path),
-                clip={'x': 0, 'y': 0, 'width': 1440, 'height': SCREENSHOT_MAX_HEIGHT}
+                clip={'x': 0, 'y': 0, 'width': vp_w, 'height': SCREENSHOT_MAX_HEIGHT}
             )
             return True
         except Exception as e:
@@ -845,8 +854,17 @@ def _take_screenshot(page, output_path: Path):
             page.screenshot(path=str(output_path), full_page=True)
             return True
         except Exception as e:
-            print(f"   [SHOT ERR] {e}")
-            return False
+            print(f"   [SHOT ERR full_page] {e}")
+            try:
+                page.screenshot(
+                    path=str(output_path),
+                    clip={'x': 0, 'y': 0, 'width': vp_w, 'height': page_height}
+                )
+                print(f"   [!] fallback clip na {page_height}px — ok")
+                return True
+            except Exception as e2:
+                print(f"   [SHOT ERR fallback] {e2}")
+                return False
 
 # ─── asset capture via network interception ───────────────────────────────────
 
@@ -1343,7 +1361,10 @@ def run(urls: list, base_output: Path, mode: str, keep_folders: bool = False):
     try:
         from playwright.sync_api import sync_playwright
         pw = sync_playwright().start()
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(
+            headless=True,
+            args=['--font-render-hinting=none', '--lang=pl-PL,pl,en-US,en']
+        )
     except ImportError:
         print("[!] Playwright not installed.")
         sys.exit(1)
