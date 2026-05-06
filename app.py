@@ -397,11 +397,11 @@ if st.session_state.in_queue and not st.session_state.running:
                         parts = Path(name).parts
                         if "assets" in [p.lower() for p in parts]:
                             continue
-                        fname = Path(name).name.lower()
-                        if fname == "screenshot_full.png":
-                            shots.append((name, zf.read(name)))
-                        elif len(parts) == 2 and fname.endswith(".png"):
-                            shots.append((name, zf.read(name)))
+                fname = Path(name).name.lower()
+                if fname == "screenshot_full.png":
+                    shots.append((name, zf.read(name)))
+                elif len(parts) <= 2 and fname.endswith(".png"):
+                    shots.append((name, zf.read(name)))
             except Exception:
                 pass
         st.session_state.screenshots = shots
