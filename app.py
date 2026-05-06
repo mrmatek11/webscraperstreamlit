@@ -11,6 +11,25 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
+# ── Auto-install Playwright Chromium if missing ───────────────────────────────
+@st.cache_resource(show_spinner=False)
+def ensure_playwright():
+    """Install Chromium browser if not already present. Runs once per session."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "playwright", "install", "chromium"],
+            capture_output=True, text=True, timeout=300
+        )
+        subprocess.run(
+            [sys.executable, "-m", "playwright", "install-deps", "chromium"],
+            capture_output=True, text=True, timeout=120
+        )
+        return True, result.stdout
+    except Exception as e:
+        return False, str(e)
+
+_pw_ok, _pw_msg = ensure_playwright()
+
 st.set_page_config(
     page_title="SNAP — Web Snapshot Tool",
     page_icon="📸",
@@ -229,6 +248,21 @@ st.markdown("""<div class="snap-banner">  ███████╗███╗  
   ╚════██║██║╚██╗██║██╔══██║██╔═══╝
   ███████║██║ ╚████║██║  ██║██║
   ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  <span style="color:#666">web snapshot tool  //  v3</span></div>""", unsafe_allow_html=True)
+
+# ── Playwright status ─────────────────────────────────────────────────────────
+if not _pw_ok:
+    st.markdown(f"""
+    <div style="background:#1f0d0d;border:1px solid #ff4444;border-radius:4px;padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.75rem;color:#ff8888;">
+    ⚠ Playwright Chromium nie jest gotowy — mogą wystąpić błędy.<br>
+    <span style="color:#666">{_pw_msg[:200]}</span>
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    st.markdown("""
+    <div style="background:#0d1f15;border:1px solid #00ff88;border-radius:4px;padding:0.5rem 1rem;margin-bottom:1rem;font-size:0.7rem;color:#00ff88;">
+    ✓ Playwright Chromium gotowy
+    </div>
+    """, unsafe_allow_html=True)
 
 # ── State init ────────────────────────────────────────────────────────────────
 if "log_lines" not in st.session_state:
