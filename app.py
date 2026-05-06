@@ -90,19 +90,19 @@ html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
     font-size: 0.8rem !important; border-radius: 4px !important;
 }
 .stTextArea textarea:focus, .stTextInput input:focus {
-    border-color: #00ff88 !important; box-shadow: 0 0 0 1px #00ff88 !important;
+    border-color: #ff9500 !important; box-shadow: 0 0 0 1px #ff9500 !important;
 }
 .stButton > button {
-    background: #00ff88 !important; color: #000 !important; border: none !important;
+    background: #ff9500 !important; color: #000 !important; border: none !important;
     font-family: 'JetBrains Mono', monospace !important; font-weight: 700 !important;
     font-size: 0.85rem !important; border-radius: 4px !important;
     padding: 0.5rem 1.5rem !important; transition: all 0.15s !important;
 }
-.stButton > button:hover { background: #00cc70 !important; transform: translateY(-1px) !important; }
+.stButton > button:hover { background: #e68600 !important; transform: translateY(-1px) !important; }
 .stButton > button:disabled { background: #2a2a2a !important; color: #555 !important; }
 .stDownloadButton > button {
-    background: #111 !important; color: #00ff88 !important;
-    border: 1px solid #00ff88 !important; font-family: 'JetBrains Mono', monospace !important;
+    background: #111 !important; color: #ff9500 !important;
+    border: 1px solid #ff9500 !important; font-family: 'JetBrains Mono', monospace !important;
     font-weight: 700 !important; border-radius: 4px !important;
 }
 .terminal {
@@ -110,11 +110,11 @@ html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
     padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
     color: #aaa; height: 280px; overflow-y: auto; white-space: pre-wrap; word-break: break-all;
 }
-.terminal .ok  { color: #00ff88; }
+.terminal .ok  { color: #ff9500; }
 .terminal .err { color: #ff4444; }
 .terminal .inf { color: #44aaff; }
 .terminal .wrn { color: #ffaa00; }
-.stProgress > div > div > div > div { background: #00ff88 !important; }
+.stProgress > div > div > div > div { background: #ff9500 !important; }
 .stRadio > div { flex-direction: row; gap: 1rem; }
 .stRadio label { color: #aaa !important; font-size: 0.8rem !important; }
 .stSlider > div > div > div { background: #2a2a2a !important; }
@@ -125,7 +125,7 @@ html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
     font-family: 'JetBrains Mono', monospace !important; font-size: 0.78rem !important;
     color: #666 !important; background: transparent !important;
 }
-.stTabs [aria-selected="true"] { color: #00ff88 !important; border-bottom: 2px solid #00ff88 !important; }
+.stTabs [aria-selected="true"] { color: #ff9500 !important; border-bottom: 2px solid #ff9500 !important; }
 .stSelectbox > div > div {
     background: #111 !important; border-color: #2a2a2a !important;
     color: #e0e0e0 !important; font-family: 'JetBrains Mono', monospace !important; font-size: 0.8rem !important;
@@ -135,17 +135,17 @@ html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
     margin-bottom: 0.5rem; margin-top: 1rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 0.3rem;
 }
 .queue-box {
-    background: #0d0d1f; border: 1px solid #333; border-left: 3px solid #44aaff;
+    background: #1f0d0d; border: 1px solid #333; border-left: 3px solid #ff9500;
     border-radius: 4px; padding: 0.8rem 1rem; font-size: 0.78rem; color: #aaa; margin-bottom: 1rem;
 }
-.queue-box strong { color: #44aaff; }
+.queue-box strong { color: #ff9500; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Banner ────────────────────────────────────────────────────────────────────
-st.markdown("""<div style="background:#111;border:1px solid #2a2a2a;border-left:3px solid #00ff88;
+st.markdown("""<div style="background:#111;border:1px solid #2a2a2a;border-left:3px solid #ff9500;
 padding:1.2rem 1.5rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;
-font-size:0.75rem;color:#00ff88;white-space:pre;line-height:1.3;">  ███████╗███╗   ██╗ █████╗ ██████╗
+font-size:0.75rem;color:#ff9500;white-space:pre;line-height:1.3;">  ███████╗███╗   ██╗ █████╗ ██████╗
   ██╔════╝████╗  ██║██╔══██╗██╔══██╗
   ███████╗██╔██╗ ██║███████║██████╔╝
   ╚════██║██║╚██╗██║██╔══██║██╔═══╝
@@ -160,8 +160,8 @@ if not _pw_ok:
     ⚠ Playwright Chromium nie jest gotowy — mogą wystąpić błędy.<br>
     <span style="color:#666">{_pw_msg[:200]}</span></div>""", unsafe_allow_html=True)
 else:
-    st.markdown("""<div style="background:#0d1f15;border:1px solid #00ff88;border-radius:4px;
-    padding:0.5rem 1rem;margin-bottom:1rem;font-size:0.7rem;color:#00ff88;">
+    st.markdown("""<div style="background:#1f150d;border:1px solid #ff9500;border-radius:4px;
+    padding:0.5rem 1rem;margin-bottom:1rem;font-size:0.7rem;color:#ff9500;">
     ✓ Playwright Chromium gotowy</div>""", unsafe_allow_html=True)
 
 # ── Session init ──────────────────────────────────────────────────────────────
@@ -342,7 +342,7 @@ if st.session_state.in_queue and not st.session_state.running:
         start_ts   = time.time()
 
         status_placeholder.markdown(
-            '<div style="font-size:0.75rem;color:#44aaff;">▶ running...</div>',
+            '<div style="font-size:0.75rem;color:#ff9500;">▶ running...</div>',
             unsafe_allow_html=True
         )
 
@@ -408,7 +408,7 @@ if st.session_state.in_queue and not st.session_state.running:
 
         if exit_code == 0:
             status_placeholder.markdown(
-                f'<div style="font-size:0.75rem;color:#00ff88;">✓ zakończono [{elapsed:.1f}s] — {len(shots)} screenshotów</div>',
+                f'<div style="font-size:0.75rem;color:#ff9500;">✓ zakończono [{elapsed:.1f}s] — {len(shots)} screenshotów</div>',
                 unsafe_allow_html=True
             )
         else:
@@ -449,7 +449,7 @@ if st.session_state.done:
         st.markdown(f"""
         <div style="background:#111;border:1px solid #2a2a2a;border-radius:4px;padding:1rem;margin-top:0.5rem;">
             <div style="font-size:0.65rem;color:#555;margin-bottom:0.3rem;">SCREENSHOTY</div>
-            <div style="font-size:1.5rem;color:#00ff88;font-weight:700;">{len(shots)}</div>
+            <div style="font-size:1.5rem;color:#ff9500;font-weight:700;">{len(shots)}</div>
         </div>""", unsafe_allow_html=True)
 
     with res_col2:
@@ -478,6 +478,6 @@ st.markdown(f"""
 <div style="margin-top:3rem;padding-top:1rem;border-top:1px solid #1a1a1a;
 font-size:0.65rem;color:#333;text-align:center;">
 snap.py v3  //  streamlit frontend  //  sesja: {SID}
-{"  //  🟢 serwer wolny" if not active else f"  //  🔴 zajęty ({active})"}
+{"  //  🟠 serwer wolny" if not active else f"  //  🔴 zajęty ({active})"}
 {"  //  kolejka: " + str(waiting_count) if waiting_count else ""}
 </div>""", unsafe_allow_html=True)
