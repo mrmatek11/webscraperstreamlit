@@ -103,88 +103,86 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 html, body, [class*="css"] { font-family: 'JetBrains Mono', monospace; }
-.stApp { background: #0d0d0d; color: #e0e0e0; }
+.stApp { background: #1a1918; color: #ccc8c2; }
 .block-container { padding-top: 2rem; max-width: 1100px; }
 .stTextArea textarea, .stTextInput input {
-    background: #111 !important; border: 1px solid #2a2a2a !important;
-    color: #e0e0e0 !important; font-family: 'JetBrains Mono', monospace !important;
-    font-size: 0.8rem !important; border-radius: 4px !important;
+    background: #222120 !important; border: 1px solid #353331 !important;
+    color: #ccc8c2 !important; font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.8rem !important; border-radius: 6px !important;
 }
 .stTextArea textarea:focus, .stTextInput input:focus {
-    border-color: #00ff88 !important; box-shadow: 0 0 0 1px #00ff88 !important;
+    border-color: #8a8078 !important; box-shadow: 0 0 0 1px #8a8078 !important;
 }
 .stButton > button {
-    background: #00ff88 !important; color: #000 !important; border: none !important;
+    background: #3d3835 !important; color: #ccc8c2 !important; border: 1px solid #4a4540 !important;
     font-family: 'JetBrains Mono', monospace !important; font-weight: 700 !important;
-    font-size: 0.85rem !important; border-radius: 4px !important; padding: 0.5rem 1.5rem !important;
+    font-size: 0.85rem !important; border-radius: 6px !important; padding: 0.5rem 1.5rem !important;
 }
-.stButton > button:hover { background: #00cc70 !important; }
-.stButton > button:disabled { background: #2a2a2a !important; color: #555 !important; }
+.stButton > button:hover { background: #4d4845 !important; border-color: #5a5550 !important; }
+.stButton > button:disabled { background: #2a2826 !important; color: #5a5550 !important; border-color: #353331 !important; }
 .stDownloadButton > button {
-    background: #111 !important; color: #00ff88 !important;
-    border: 1px solid #00ff88 !important; font-family: 'JetBrains Mono', monospace !important;
-    font-weight: 700 !important; border-radius: 4px !important;
+    background: #222120 !important; color: #b0a89e !important;
+    border: 1px solid #4a4540 !important; font-family: 'JetBrains Mono', monospace !important;
+    font-weight: 700 !important; border-radius: 6px !important;
 }
 .terminal {
-    background: #050505; border: 1px solid #1a1a1a; border-radius: 4px; padding: 1rem;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #aaa;
+    background: #1a1918; border: 1px solid #2d2b29; border-radius: 6px; padding: 1rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #9a9590;
     height: 300px; overflow-y: auto; white-space: pre-wrap; word-break: break-all;
 }
-.terminal .ok  { color: #00ff88; }
-.terminal .err { color: #ff4444; }
-.terminal .inf { color: #44aaff; }
-.terminal .wrn { color: #ffaa00; }
-.stProgress > div > div > div > div { background: #00ff88 !important; }
-.stTabs [data-baseweb="tab-list"] { background: #111; border-bottom: 1px solid #2a2a2a; }
+.terminal .ok  { color: #8fa88e; }
+.terminal .err { color: #c4766e; }
+.terminal .inf { color: #8fa4b8; }
+.terminal .wrn { color: #b8a472; }
+.stProgress > div > div > div > div { background: #8fa88e !important; }
+.stTabs [data-baseweb="tab-list"] { background: #222120; border-bottom: 1px solid #353331; }
 .stTabs [data-baseweb="tab"] {
     font-family: 'JetBrains Mono', monospace !important; font-size: 0.78rem !important;
-    color: #666 !important; background: transparent !important;
+    color: #7a7672 !important; background: transparent !important;
 }
-.stTabs [aria-selected="true"] { color: #00ff88 !important; border-bottom: 2px solid #00ff88 !important; }
+.stTabs [aria-selected="true"] { color: #b0a89e !important; border-bottom: 2px solid #b0a89e !important; }
 .stSelectbox > div > div {
-    background: #111 !important; border-color: #2a2a2a !important;
-    color: #e0e0e0 !important; font-family: 'JetBrains Mono', monospace !important; font-size: 0.8rem !important;
+    background: #222120 !important; border-color: #353331 !important;
+    color: #ccc8c2 !important; font-family: 'JetBrains Mono', monospace !important; font-size: 0.8rem !important;
 }
-.stSlider label, .stCheckbox label, .stRadio label { color: #aaa !important; font-size: 0.8rem !important; }
-.stSlider > div > div > div { background: #2a2a2a !important; }
-.stSlider > div > div > div > div { background: #00ff88 !important; }
-.stNumberInput input { background: #111 !important; border: 1px solid #2a2a2a !important; color: #e0e0e0 !important; font-family: 'JetBrains Mono', monospace !important; }
+.stSlider label, .stCheckbox label, .stRadio label { color: #9a9590 !important; font-size: 0.8rem !important; }
+.stSlider > div > div > div { background: #353331 !important; }
+.stSlider > div > div > div > div { background: #8fa88e !important; }
+.stNumberInput input { background: #222120 !important; border: 1px solid #353331 !important; color: #ccc8c2 !important; font-family: 'JetBrains Mono', monospace !important; }
 .section-header {
-    font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 2px;
-    margin-bottom: 0.5rem; margin-top: 1rem; border-bottom: 1px solid #1a1a1a; padding-bottom: 0.3rem;
+    font-size: 0.7rem; color: #7a7672; text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 0.5rem; margin-top: 1rem; border-bottom: 1px solid #2d2b29; padding-bottom: 0.3rem;
 }
 .queue-box {
-    background: #0d0d1f; border: 1px solid #333; border-left: 3px solid #44aaff;
-    border-radius: 4px; padding: 0.8rem 1rem; font-size: 0.78rem; color: #aaa; margin-bottom: 1rem;
+    background: #1e1d1c; border: 1px solid #353331; border-left: 3px solid #8fa4b8;
+    border-radius: 6px; padding: 0.8rem 1rem; font-size: 0.78rem; color: #9a9590; margin-bottom: 1rem;
 }
-.queue-box strong { color: #44aaff; }
+.queue-box strong { color: #8fa4b8; }
 .cfg-box {
-    background: #111; border: 1px solid #1a1a1a; border-radius: 4px;
+    background: #222120; border: 1px solid #2d2b29; border-radius: 6px;
     padding: 0.8rem 1rem; margin-top: 0.5rem;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Banner ────────────────────────────────────────────────────────────────────
-st.markdown("""<div style="background:#111;border:1px solid #2a2a2a;border-left:3px solid #00ff88;
-padding:1.2rem 1.5rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;
-font-size:0.75rem;color:#00ff88;white-space:pre;line-height:1.3;">  ███████╗███╗   ██╗ █████╗ ██████╗
-  ██╔════╝████╗  ██║██╔══██╗██╔══██╗
-  ███████╗██╔██╗ ██║███████║██████╔╝
-  ╚════██║██║╚██╗██║██╔══██║██╔═══╝
-  ███████║██║ ╚████║██║  ██║██║
-  ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  <span style="color:#666">web snapshot tool  //  v4.1</span></div>""",
+st.markdown("""<div style="background:#222120;border:1px solid #2d2b29;border-radius:6px;
+padding:0.8rem 1.2rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;
+display:flex;align-items:baseline;gap:1rem;">
+<span style="font-size:1.1rem;font-weight:700;color:#b0a89e;letter-spacing:1px;">snap</span>
+<span style="font-size:0.7rem;color:#5a5550;">web snapshot tool  ·  v4.1</span>
+</div>""",
 unsafe_allow_html=True)
 
 # ── Playwright status ─────────────────────────────────────────────────────────
 if not _pw_ok:
-    st.markdown(f"""<div style="background:#1f0d0d;border:1px solid #ff4444;border-radius:4px;
-    padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.75rem;color:#ff8888;">
+    st.markdown(f"""<div style="background:#2a2220;border:1px solid #c4766e;border-radius:6px;
+    padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.75rem;color:#c4766e;">
     ⚠ Playwright Chromium nie jest gotowy — mogą wystąpić błędy.<br>
-    <span style="color:#666">{_pw_msg[:200]}</span></div>""", unsafe_allow_html=True)
+    <span style="color:#5a5550">{_pw_msg[:200]}</span></div>""", unsafe_allow_html=True)
 else:
-    st.markdown("""<div style="background:#0d1f15;border:1px solid #00ff88;border-radius:4px;
-    padding:0.5rem 1rem;margin-bottom:1rem;font-size:0.7rem;color:#00ff88;">
+    st.markdown("""<div style="background:#1e2120;border:1px solid #353331;border-radius:6px;
+    padding:0.5rem 1rem;margin-bottom:1rem;font-size:0.7rem;color:#8fa88e;">
     ✓ Playwright Chromium gotowy</div>""", unsafe_allow_html=True)
 
 # ── Session init ──────────────────────────────────────────────────────────────
@@ -238,7 +236,7 @@ with col_left:
         "", placeholder="https://example.com\nhttps://another-site.com",
         height=120, key="urls_input", label_visibility="collapsed"
     )
-    st.markdown('<div style="font-size:0.65rem;color:#555;margin-top:-0.5rem;margin-bottom:0.8rem;">jeden URL per linia</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:0.65rem;color:#5a5550;margin-top:-0.5rem;margin-bottom:0.8rem;">jeden URL per linia</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="section-header">// TRYB</div>', unsafe_allow_html=True)
     mode = st.selectbox("", options=["screenshots","full","crawl","clean-screenshots","clean-full","clean-crawl"],
@@ -254,7 +252,7 @@ with col_left:
 
     # ── snap.cfg settings ─────────────────────────────────────────────────────
     with st.expander("⚙️  Ustawienia zaawansowane (snap.cfg)", expanded=False):
-        st.markdown('<div style="font-size:0.68rem;color:#555;margin-bottom:0.8rem;">Nadpisują snap.cfg dla tej sesji</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-size:0.68rem;color:#5a5550;margin-bottom:0.8rem;">Nadpisują snap.cfg dla tej sesji</div>', unsafe_allow_html=True)
 
         cfg_col1, cfg_col2 = st.columns(2)
         with cfg_col1:
@@ -395,7 +393,7 @@ if st.session_state.in_queue and not st.session_state.running:
         start_ts   = time.time()
 
         status_placeholder.markdown(
-            '<div style="font-size:0.75rem;color:#44aaff;">▶ running...</div>',
+            '<div style="font-size:0.75rem;color:#8fa4b8;">▶ running...</div>',
             unsafe_allow_html=True
         )
 
@@ -461,12 +459,12 @@ if st.session_state.in_queue and not st.session_state.running:
 
         if exit_code == 0:
             status_placeholder.markdown(
-                f'<div style="font-size:0.75rem;color:#00ff88;">✓ zakończono [{elapsed:.1f}s] — {len(shots)} screenshotów</div>',
+                f'<div style="font-size:0.75rem;color:#8fa88e;">✓ zakończono [{elapsed:.1f}s] — {len(shots)} screenshotów</div>',
                 unsafe_allow_html=True
             )
         else:
             status_placeholder.markdown(
-                f'<div style="font-size:0.75rem;color:#ff4444;">✗ błąd (exit {exit_code}) [{elapsed:.1f}s]</div>',
+                f'<div style="font-size:0.75rem;color:#c4766e;">✗ błąd (exit {exit_code}) [{elapsed:.1f}s]</div>',
                 unsafe_allow_html=True
             )
         render_log()
@@ -485,28 +483,28 @@ if st.session_state.done:
             zip_name = Path(zip_path).name
             zip_size = os.path.getsize(zip_path) / (1024 * 1024)
             st.markdown(f"""
-            <div style="background:#111;border:1px solid #2a2a2a;border-radius:4px;padding:1rem;margin-bottom:1rem;">
-                <div style="font-size:0.65rem;color:#555;margin-bottom:0.5rem;">PLIK ZIP</div>
-                <div style="font-size:0.8rem;color:#e0e0e0;word-break:break-all;">{zip_name}</div>
-                <div style="font-size:0.72rem;color:#666;margin-top:0.3rem;">{zip_size:.2f} MB</div>
+            <div style="background:#222120;border:1px solid #2d2b29;border-radius:6px;padding:1rem;margin-bottom:1rem;">
+                <div style="font-size:0.65rem;color:#5a5550;margin-bottom:0.5rem;">PLIK ZIP</div>
+                <div style="font-size:0.8rem;color:#ccc8c2;word-break:break-all;">{zip_name}</div>
+                <div style="font-size:0.72rem;color:#7a7672;margin-top:0.3rem;">{zip_size:.2f} MB</div>
             </div>""", unsafe_allow_html=True)
             with open(zip_path, "rb") as f:
                 st.download_button("⬇  Pobierz ZIP", data=f, file_name=zip_name,
                                    mime="application/zip", use_container_width=True)
         else:
-            st.markdown('<div style="color:#ff4444;font-size:0.8rem;">Brak ZIP — sprawdź log</div>', unsafe_allow_html=True)
+            st.markdown('<div style="color:#c4766e;font-size:0.8rem;">Brak ZIP — sprawdź log</div>', unsafe_allow_html=True)
 
         shots = st.session_state.screenshots
         st.markdown(f"""
-        <div style="background:#111;border:1px solid #2a2a2a;border-radius:4px;padding:1rem;margin-top:0.5rem;">
-            <div style="font-size:0.65rem;color:#555;margin-bottom:0.3rem;">SCREENSHOTY</div>
-            <div style="font-size:1.5rem;color:#00ff88;font-weight:700;">{len(shots)}</div>
+        <div style="background:#222120;border:1px solid #2d2b29;border-radius:6px;padding:1rem;margin-top:0.5rem;">
+            <div style="font-size:0.65rem;color:#5a5550;margin-bottom:0.3rem;">SCREENSHOTY</div>
+            <div style="font-size:1.5rem;color:#b0a89e;font-weight:700;">{len(shots)}</div>
         </div>""", unsafe_allow_html=True)
 
     with res_col2:
         shots = st.session_state.screenshots
         if shots:
-            st.markdown('<div style="font-size:0.7rem;color:#555;margin-bottom:0.8rem;">PODGLĄD</div>', unsafe_allow_html=True)
+            st.markdown('<div style="font-size:0.7rem;color:#5a5550;margin-bottom:0.8rem;">PODGLĄD</div>', unsafe_allow_html=True)
             tabs = st.tabs([Path(name).stem[:30] for name, _ in shots[:10]])
             for i, (tab, (name, data)) in enumerate(zip(tabs, shots[:10])):
                 with tab:
@@ -515,17 +513,17 @@ if st.session_state.done:
                                        file_name=Path(name).name, mime="image/png",
                                        key=f"shot_{i}")
             if len(shots) > 10:
-                st.markdown(f'<div style="font-size:0.72rem;color:#555;margin-top:0.5rem;">...i {len(shots)-10} więcej w ZIP</div>', unsafe_allow_html=True)
+                st.markdown(f'<div style="font-size:0.72rem;color:#5a5550;margin-top:0.5rem;">...i {len(shots)-10} więcej w ZIP</div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div style="color:#555;font-size:0.8rem;">Brak screenshotów</div>', unsafe_allow_html=True)
+            st.markdown('<div style="color:#5a5550;font-size:0.8rem;">Brak screenshotów</div>', unsafe_allow_html=True)
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 active = JOB["active_sid"]
 waiting_count = len(JOB["waiting"])
 st.markdown(f"""
-<div style="margin-top:3rem;padding-top:1rem;border-top:1px solid #1a1a1a;
-font-size:0.65rem;color:#333;text-align:center;">
-snap.py v4.1  //  streamlit frontend  //  sesja: {SID}
-{"  //  🟢 serwer wolny" if not active else f"  //  🔴 zajęty ({active})"}
-{"  //  kolejka: " + str(waiting_count) if waiting_count else ""}
+<div style="margin-top:3rem;padding-top:1rem;border-top:1px solid #2d2b29;
+font-size:0.65rem;color:#4a4540;text-align:center;">
+snap.py v4.1  ·  streamlit frontend  ·  sesja: {SID}
+{"  ·  ● serwer wolny" if not active else f"  ·  ● zajęty ({active})"}
+{"  ·  kolejka: " + str(waiting_count) if waiting_count else ""}
 </div>""", unsafe_allow_html=True)
