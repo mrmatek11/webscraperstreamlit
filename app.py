@@ -96,7 +96,8 @@ max_pages = {max_pages}
     return cfg_path
 
 # ── Page config ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="SNAP — Web Snapshot Tool", page_icon="📸", layout="wide")
+st.set_page_config(page_title="SNAP — Web Snapshot Tool", page_icon="📸", layout="wide",
+                   initial_sidebar_state="collapsed")
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
 st.markdown("""
@@ -171,6 +172,9 @@ padding:0.8rem 1.2rem;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospac
 display:flex;align-items:baseline;gap:1rem;">
 <span style="font-size:1.1rem;font-weight:700;color:#b0a89e;letter-spacing:1px;">snap</span>
 <span style="font-size:0.7rem;color:#5a5550;">web snapshot tool  ·  v4.1</span>
+<span style="margin-left:auto;font-size:0.68rem;color:#5a5550;">
+<a href="/checker" style="color:#8fa4b8;text-decoration:none;">[ checker ]</a>
+</span>
 </div>""",
 unsafe_allow_html=True)
 
